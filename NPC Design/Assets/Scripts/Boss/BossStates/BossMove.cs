@@ -27,31 +27,35 @@ public class BossMove : BossState
         {
             boss.bossNavMeshAgent.SetDestination(boss.playerToTarget.transform.position);
 
+            ProcessMoveSpeedAndPlayMoveAnim();
 
-            float dist = boss.bossNavMeshAgent.remainingDistance;
+            base.OnStateUpdate();
+        }
+    }
 
-            if (dist > 3f)
+    protected virtual void ProcessMoveSpeedAndPlayMoveAnim()
+    {
+        float dist = boss.bossNavMeshAgent.remainingDistance;
+
+        if (dist > 3f)
+        {
+            if (boss.currentMoveSpeed < boss.bossSpeed)
             {
-                if (boss.currentMoveSpeed < boss.bossSpeed)
-                {
-                    boss.currentMoveSpeed += 3.7f * Time.deltaTime;
-                    if (boss.currentMoveSpeed >= boss.bossSpeed) boss.currentMoveSpeed = boss.bossSpeed;
-                }
+                boss.currentMoveSpeed += 3.7f * Time.deltaTime;
+                if (boss.currentMoveSpeed >= boss.bossSpeed) boss.currentMoveSpeed = boss.bossSpeed;
             }
-            else
+        }
+        else
+        {
+            if (boss.currentMoveSpeed > 0f)
             {
-                if (boss.currentMoveSpeed > 0f)
-                {
-                    boss.currentMoveSpeed -= 4f * Time.deltaTime;
-                    if (boss.currentMoveSpeed <= 0f) boss.currentMoveSpeed = 0f;
-                }
+                boss.currentMoveSpeed -= 4f * Time.deltaTime;
+                if (boss.currentMoveSpeed <= 0f) boss.currentMoveSpeed = 0f;
             }
-
-            if (dist <= boss.bossNavMeshAgent.stoppingDistance) boss.RotateBossToPos(boss.playerToTarget.transform.position);
         }
 
-        boss.bossAnimator.SetFloat("Speed", boss.currentMoveSpeed / boss.bossSpeed);
+        if (dist <= boss.bossNavMeshAgent.stoppingDistance) boss.RotateBossToPos(boss.playerToTarget.transform.position);
 
-        base.OnStateUpdate();
+        boss.bossAnimator.SetFloat("Speed", boss.currentMoveSpeed / boss.bossSpeed);
     }
 }

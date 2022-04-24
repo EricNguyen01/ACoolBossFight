@@ -4,6 +4,9 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public void GetDamaged(float damage);
+    public enum DamageEffect { None, Stagger, KnockUp, KnockBack }
+
+    public void GetDamaged(float damage, IDamageable.DamageEffect damageEffect);
+    public void GetDamageDirection(Vector3 dir);
     public bool GetColliderEnabledStatus();
 }

@@ -52,7 +52,7 @@ public class HealthBarUI : MonoBehaviour
         currentHealth = health;
         float normalizedHP = currentHealth / baseHealth;
         healthSliderUI.value = normalizedHP;
-        healthTextUI.text = currentHealth.ToString() + " / " + baseHealth.ToString();
+        healthTextUI.text = System.Math.Round(currentHealth, 2).ToString() + " / " + baseHealth.ToString();
     }
 
     public virtual void EnableHealthBar(bool enabled)

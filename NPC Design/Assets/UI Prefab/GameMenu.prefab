@@ -155,7 +155,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: Start Boss Fight!
 --- !u!1 &2696293461467267721
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Quit
 --- !u!1 &2696293461918324028
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ GameObject:
   - component: {fileID: 2696293462593994410}
   - component: {fileID: 2696293462593994411}
   m_Layer: 5
-  m_Name: MenuButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -898,7 +898,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934484483863203312}
         m_TargetAssemblyTypeName: GameMenuUI, Assembly-CSharp
-        m_MethodName: OnMainMenuButtonClicked
+        m_MethodName: OnQuitButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.58431375}
+  m_Color: {r: 0.8301887, g: 0.55420935, b: 0.36340332, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1242,8 +1242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c2534a36f102d4eabcbe4d1055abac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openOnAwake: 0
-  cannotBeClosed: 0
+  openOnAwake: 1
+  cannotBeClosed: 1
 --- !u!1 &2696293463026736974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 2696293463026736971}
   - component: {fileID: 2696293463026736972}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: StartBossFightButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1367,13 +1367,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 934484483863203312}
         m_TargetAssemblyTypeName: GameMenuUI, Assembly-CSharp
-        m_MethodName: OnRestartButtonClick
-        m_Mode: 1
+        m_MethodName: OnStartBossFightClicked
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: FSMBossFight
           m_BoolArgument: 0
         m_CallState: 2

@@ -2485,10 +2485,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.01
+  m_Radius: 1.0810753
   m_Height: 3.71
   m_Direction: 1
-  m_Center: {x: 0, y: 1.88, z: 0}
+  m_Center: {x: 0, y: 1.8800001, z: 0.07107532}
 --- !u!195 &858772359
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3181,6 +3181,7 @@ MonoBehaviour:
   <abilityStatusEffect>k__BackingField: 0
   <abilityDamageType>k__BackingField: 0
   <timeBetweenTick>k__BackingField: 1
+  <abilityRange>k__BackingField: 1000
   <abilityMinDamage>k__BackingField: 48.8
   <abilityMaxDamage>k__BackingField: 60
   <abilityCastTime>k__BackingField: 1.945
@@ -3393,6 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7969430e6e052ce4582726590488bed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPartsColliders: []
 --- !u!1 &658801276596310605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,6 +3641,7 @@ MonoBehaviour:
   <abilityStatusEffect>k__BackingField: 0
   <abilityDamageType>k__BackingField: 0
   <timeBetweenTick>k__BackingField: 1
+  <abilityRange>k__BackingField: 1000
   <abilityMinDamage>k__BackingField: 25
   <abilityMaxDamage>k__BackingField: 28.8
   <abilityCastTime>k__BackingField: 1.945
@@ -3701,6 +3704,7 @@ MonoBehaviour:
   <abilityStatusEffect>k__BackingField: 0
   <abilityDamageType>k__BackingField: 1
   <timeBetweenTick>k__BackingField: 0.6
+  <abilityRange>k__BackingField: 1000
   <abilityMinDamage>k__BackingField: 4.34
   <abilityMaxDamage>k__BackingField: 6.75
   <abilityCastTime>k__BackingField: 1

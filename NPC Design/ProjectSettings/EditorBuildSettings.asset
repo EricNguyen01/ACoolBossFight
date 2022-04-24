@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/BossScenes/MainMenu.unity
     guid: ee1d00f5bded5fb40adde9cf84eea401
   - enabled: 1
-    path: Assets/BossScenes/BossFight.unity
+    path: Assets/BossScenes/FSMBossFight.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/BossScenes/BTBoss.unity
+    guid: a976d58840f47a1408bf5ce1b469c78b
   m_configObjects: {}

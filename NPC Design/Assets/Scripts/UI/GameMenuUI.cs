@@ -91,12 +91,22 @@ public class GameMenuUI : MonoBehaviour
         alreadyShowedMenuOnPlayerDead = true;
     }
 
-    public void OnStartBossFightClicked()
+    public void OnStartBossFightClicked(string sceneName)
     {
+        if(sceneName == string.Empty)
+        {
+            Debug.LogWarning("Scene name is empty at: " + name);
+            return;
+        }
+
         if(Time.timeScale < 1f) Time.timeScale = 1f;
-        Scene bossFightSc = SceneManager.GetSceneByName("BossFight");
-        if (bossFightSc == null) return;
-        SceneManager.LoadScene("BossFight");
+        Scene bossFightSc = SceneManager.GetSceneByName(sceneName);
+        if (bossFightSc == null)
+        {
+            Debug.LogWarning("Scene Based On Scene Name not found!");
+            return;
+        }
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnMainMenuButtonClicked()

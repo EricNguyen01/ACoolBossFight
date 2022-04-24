@@ -13,6 +13,7 @@ public class BossIdle : BossState
 
     public override void OnStateEnter()
     {
+        //boss.currentMeleeSpeed = 0f;
         boss.bossNavMeshAgent.isStopped = true;
         boss.bossNavMeshAgent.ResetPath();
         currentDecelSpd = boss.currentMoveSpeed;

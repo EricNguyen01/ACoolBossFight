@@ -20,7 +20,7 @@ public class PlayerMelee : PlayerState
         player.playerAnimator.SetBool("Melee", true);
         if (player.playerMeleeWeapon != null)
         {
-            if (player.playerMeleeWeapon.weaponCollider != null) player.playerMeleeWeapon.weaponCollider.enabled = true;
+            player.playerMeleeWeapon.EnablePlayerWeapon(true);
         }
 
         base.OnStateEnter();
@@ -37,7 +37,7 @@ public class PlayerMelee : PlayerState
         else player.currentAttackNum += 1;
         if (player.playerMeleeWeapon != null)
         {
-            if(player.playerMeleeWeapon.weaponCollider != null) player.playerMeleeWeapon.weaponCollider.enabled = false;
+            player.playerMeleeWeapon.EnablePlayerWeapon(false);
         }
 
         base.OnStateTransition();

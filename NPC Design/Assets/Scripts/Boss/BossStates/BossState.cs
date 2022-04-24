@@ -32,4 +32,14 @@ public class BossState
     {
 
     }
+
+    public virtual void OnAnimationEventStarted()
+    {
+
+    }
+
+    public float GetTimeInState()
+    {
+        return timeInState;
+    }
 }

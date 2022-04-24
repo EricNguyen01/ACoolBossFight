@@ -16,7 +16,7 @@ public class Player : MonoBehaviour, IDamageable, IHeal
     [field: SerializeField] public PlayerWeapon playerMeleeWeapon { get; private set; }
     [field: SerializeField] public float playerDamageMin { get; private set; } = 8f;
     [field: SerializeField] public float playerDamageMax { get; private set; } = 30f;
-    public int playerAttackComboNum { get; private set; } = 4;
+    [field: SerializeField] public int playerAttackComboNum { get; private set; } = 4;
     public int currentAttackNum { get; set; } = 0;
     [field: SerializeField] public float playerAttackSpeed { get; private set; } = 0.4f;
     public float currentAttackSpeed { get; set; } = 0f;
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour, IDamageable, IHeal
     [field: SerializeField] public int playerRollNumber { get; private set; } = 2;
     public int currentRollNumber { get; set; } = 0;
     [field: SerializeField] public float playerRollDistance { get; private set; } = 1.3f;
-    public float playerRollTime { get; private set; } = 0.85f;//roll time = roll animation time
+    [field: SerializeField] public float playerRollTime { get; private set; } = 0.85f;//roll time = roll animation time
     [field: SerializeField] public float playerRollCooldown { get; private set; } = 1.37f;
     public float currentRollCooldown { get; set; } = 0f;
     public float playerRollWaitTime { get; private set; } = 0.1f;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour, IDamageable, IHeal
         if(playerMeleeWeapon != null)
         {
             playerMeleeWeapon.GetWeaponDamageValues(playerDamageMin, playerDamageMax);
-            if (playerMeleeWeapon.weaponCollider != null) playerMeleeWeapon.weaponCollider.enabled = false;
+            playerMeleeWeapon.EnablePlayerWeapon(false);
         }
 
         GeneratePlayerStates();
@@ -262,7 +262,10 @@ public class Player : MonoBehaviour, IDamageable, IHeal
         {
             currentRollCooldown -= Time.deltaTime;
 
-            if (currentRollNumber >= playerRollNumber) rollCooldownIndicator.EnableAndDisplayRollCooldownUI(playerRollCooldown, 0f, currentRollCooldown);
+            if (currentRollNumber >= playerRollNumber)
+            {
+                if(rollCooldownIndicator != null) rollCooldownIndicator.EnableAndDisplayRollCooldownUI(playerRollCooldown, 0f, currentRollCooldown);
+            }
 
             if (currentRollCooldown <= 0f)
             {
@@ -293,7 +296,7 @@ public class Player : MonoBehaviour, IDamageable, IHeal
         }
     }
 
-    public void GetDamaged(float damage)
+    public void GetDamaged(float damage, IDamageable.DamageEffect damageEffect)
     {
         if (playerHP > 0f)
         {
@@ -303,6 +306,12 @@ public class Player : MonoBehaviour, IDamageable, IHeal
 
         if (playerHeathBarUI != null) playerHeathBarUI.SetAndDisplayHealthBarUI(playerHP);
     }
+
+    public void GetDamageDirection(Vector3 dir)
+    {
+
+    }
+
     public bool GetColliderEnabledStatus()
     {
         if (playerCollider == null) return false;

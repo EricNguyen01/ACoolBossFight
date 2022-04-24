@@ -50,7 +50,7 @@ public class Boss : MonoBehaviour, IDamageable
     public BossAbilityInventory bossAbilityInventory { get; private set; }
     public BossHealthBarUI bossHealthBarUI { get; set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         bossCollider = GetComponent<Collider>();
         bossAbilityInventory = GetComponentInChildren<BossAbilityInventory>();
@@ -69,7 +69,7 @@ public class Boss : MonoBehaviour, IDamageable
         if (bossMeleeWeapon != null)
         {
             bossMeleeWeapon.GetWeaponDamageValues(bossMeleeMinDamage, bossMeleeMaxDamage);
-            if (bossMeleeWeapon.weaponCollider != null) bossMeleeWeapon.weaponCollider.enabled = false;
+            bossMeleeWeapon.EnableBossWeapon(false);
         }
 
         GenerateBossStates();
@@ -98,18 +98,18 @@ public class Boss : MonoBehaviour, IDamageable
         if(bossHealthBarUI != null) bossHealthBarUI.gameObject.SetActive(false);
     }
 
-    private void Start()
+    /*private void Start()
     {
         
-    }
+    }*/
 
-    private void Update()
+    protected virtual void Update()
     {
         if(bossHP > 0f)
         {
             IsPlayerInRange();
             BossMeleeComboResetAndCooldown();
-            bossCurrentState.OnStateUpdate();
+            if(bossCurrentState != null) bossCurrentState.OnStateUpdate();
         }
     }
 
@@ -118,9 +118,15 @@ public class Boss : MonoBehaviour, IDamageable
         bossCurrentState.OnAnimationEventEnded();
     }
 
+    public void OnAnimationEventStarted()
+    {
+        bossCurrentState.OnAnimationEventStarted();
+    }
+
     public void StartCheckingForAvailableAbilityToUse()
     {
         if (bossAbilityInventory == null) return;
+        if (bossAbilityInventory.bossAbilities.Count == 0) return;
         StartCoroutine(CheckForAvailableAbilityToUse());
     }
 
@@ -143,7 +149,7 @@ public class Boss : MonoBehaviour, IDamageable
         }
     }
 
-    public void GetDamaged(float damage)
+    public void GetDamaged(float damage, IDamageable.DamageEffect damageEffect)
     {
         if(bossHP > 0f)
         {
@@ -152,6 +158,11 @@ public class Boss : MonoBehaviour, IDamageable
         }
 
         if (bossHealthBarUI != null) bossHealthBarUI.SetAndDisplayHealthBarUI(bossHP);
+    }
+
+    public void GetDamageDirection(Vector3 dir)
+    {
+
     }
 
     public void OnAbilityUsed(BossAbility ability)
@@ -198,7 +209,7 @@ public class Boss : MonoBehaviour, IDamageable
         return rot;
     }
 
-    private void GenerateBossStates()
+    protected virtual void GenerateBossStates()
     {
         bossIdle = new BossIdle(this);
         bossMove = new BossMove(this);

@@ -472,26 +472,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 929337012}
     m_Modifications:
-    - target: {fileID: 934484483863203312, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: openOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 934484483863203312, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: cannotBeClosed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293461166178899, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Text
-      value: Start Boss Fight!
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293461906785756, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Text
-      value: Quit
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293462593994411, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnQuitButtonClicked
-      objectReference: {fileID: 0}
     - target: {fileID: 2696293462593994412, guid: 1583c27de6055b449be363ce40e13241, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -515,10 +495,6 @@ PrefabInstance:
     - target: {fileID: 2696293462593994412, guid: 1583c27de6055b449be363ce40e13241, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293462593994413, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Name
-      value: QuitButton
       objectReference: {fileID: 0}
     - target: {fileID: 2696293462944849377, guid: 1583c27de6055b449be363ce40e13241, type: 3}
       propertyPath: m_Pivot.x
@@ -608,25 +584,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 2696293462944849391, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293462944849391, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Color.b
-      value: 0.36340332
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293462944849391, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Color.g
-      value: 0.55420935
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293462944849391, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8301887
-      objectReference: {fileID: 0}
     - target: {fileID: 2696293463026736972, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnStartBossFightClicked
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: BTBoss
       objectReference: {fileID: 0}
     - target: {fileID: 2696293463026736973, guid: 1583c27de6055b449be363ce40e13241, type: 3}
       propertyPath: m_AnchorMax.y
@@ -651,10 +611,6 @@ PrefabInstance:
     - target: {fileID: 2696293463026736973, guid: 1583c27de6055b449be363ce40e13241, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2696293463026736974, guid: 1583c27de6055b449be363ce40e13241, type: 3}
-      propertyPath: m_Name
-      value: StartBossFightButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1583c27de6055b449be363ce40e13241, type: 3}

@@ -19,15 +19,15 @@ public class BossMelee : BossState
         boss.bossAnimator.SetTrigger("Melee");
 
         if (boss.bossMeleeWeapon == null) return;
-        if (boss.bossMeleeWeapon.weaponCollider == null) return;
-        boss.bossMeleeWeapon.weaponCollider.enabled = true;
+        boss.bossMeleeWeapon.GetBossHoldingThisWeapon(boss);
+        boss.bossMeleeWeapon.EnableBossWeapon(true);
 
         base.OnStateEnter();
     }
 
     public override void OnStateUpdate()
     {
-        if(timeInState <= 0.25f) boss.RotateBossToPos(boss.playerToTarget.transform.position);
+        if(timeInState <= 0.55f) boss.RotateBossToPos(boss.playerToTarget.transform.position);
         base.OnStateUpdate();
     }
 
@@ -39,8 +39,7 @@ public class BossMelee : BossState
         boss.bossNavMeshAgent.isStopped = false;
 
         if (boss.bossMeleeWeapon == null) return;
-        if (boss.bossMeleeWeapon.weaponCollider == null) return;
-        boss.bossMeleeWeapon.weaponCollider.enabled = false;
+        boss.bossMeleeWeapon.EnableBossWeapon(false);
 
         base.OnStateTransition();
     }

@@ -38,7 +38,7 @@ public class BossTriggerDome : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            boss.bossHealthBarUI.EnableHealthBar(true);
+            if(boss.bossHealthBarUI != null) boss.bossHealthBarUI.EnableHealthBar(true);
             Player player = other.GetComponent<Player>();
             boss.playerToTarget = player;
             if (boss.bossAbilityInventory != null) boss.bossAbilityInventory.SetAllAbilityOnCooldown();
